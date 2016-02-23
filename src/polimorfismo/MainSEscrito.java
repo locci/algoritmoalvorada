@@ -1,6 +1,6 @@
 package polimorfismo;
 
-public class Main {
+public class MainSEscrito {
     
     public static void main(String[] args) {
         
