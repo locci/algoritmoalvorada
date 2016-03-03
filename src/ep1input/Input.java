@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Input {
     
     public void writeFileOutput(String path) throws IOException {
-        
+        int value;
         if(!path.contains("coor")){
             File fl = new File(path);
             FileWriter fw = new FileWriter(fl);
@@ -24,8 +24,13 @@ public class Input {
             int read = 0;
             for(int j = 0; j <= line; j++ ){
                 read =  (int)(Math.random()*100);
-                for(int i =0; i <= read; i++){
-                    fw.write( (int)(Math.random()*100) + " ");
+                
+                for(int i =0; i <= read + 1; i++){                    
+                    value = (int)(Math.random()*100);
+                    if(value > 0) {
+                         fw.write(value  + " ");
+                    }
+                   
                 }
                 fw.write("\n");
                 
@@ -35,15 +40,21 @@ public class Input {
             
             File fl = new File(path);
             FileWriter fw = new FileWriter(fl);
-            int coor = (int)(Math.random()*1000000);
+            int coor = (int)(Math.random()*100000);
             boolean lineCol = true;
             for(int j = 0; j < coor*2; j++ ){    
                 
                 if(lineCol) {
-                    fw.write( (int)(Math.random()*150000) + " ");
-                    lineCol = false;
+                     value = (int)(Math.random()*15000);
+                    if(value > 0) {
+                         fw.write(value  + " ");
+                    }
+                   lineCol = false;
                 } else {
-                    fw.write( (int)(Math.random()*150) + " ");
+                      value = (int)(Math.random()*15000);
+                    if(value > 0) {
+                         fw.write(value  + " ");
+                    }
                     lineCol = true;
                 }
                  
@@ -62,7 +73,7 @@ public class Input {
 //            in.writeFileOutput("logHorm1");
 //            in.writeFileOutput("logHorm2");
 //            in.writeFileOutput("logHorm3");
-            in.writeFileOutput("coor");
+            in.writeFileOutput("/home/alexandre/Desktop/coor");
         } catch (IOException ex) {
             Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
         }
